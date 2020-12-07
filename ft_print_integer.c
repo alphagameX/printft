@@ -48,7 +48,7 @@ int ft_print_integer(t_options print, int nbr)
         count += ft_print_padd(print.padd_size - print.field_size - ((sign == -1) ? 1 : 0), print.padd_char);
     if(sign == -1)
         ft_putchar('-');
-    ft_print_padd(print.field_size - ft_strlen(nb), '0');
+    count += ft_print_padd(print.field_size - ft_strlen(nb), '0');
     count += ft_putstr_r(nb);
     if(print.reverse_padd)
         count += ft_print_padd(print.padd_size - print.field_size - ((sign == -1) ? 1 : 0), print.padd_char);
