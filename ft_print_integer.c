@@ -15,13 +15,15 @@ static int ft_print_padd(int end, char c)
 static int ft_check_padd(t_options p, char *str, int *sign)
 {
     (void)str;
+    int temp_sign;
 
+    temp_sign = *sign;
     if(*sign == -1 && p.padd_char == '0')
     {
         ft_putchar('-');
         *sign *= -1;
     }
-    return(ft_print_padd(p.padd_size - p.field_size - ((*sign == -1) ? 1 : 0), p.padd_char));
+    return(ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), p.padd_char));
 }
 
 static int ft_putstr_r(char *str) 
