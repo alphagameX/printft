@@ -10,7 +10,8 @@ static void ft_print_padd(int end) {
     }
 }
 
-static void ft_check_padd(t_options p, char *str) {
+static void ft_check_padd(t_options p, char *str)
+{
     if(p.field_size < 0 || p.field_size > ft_strlen(str))
         ft_print_padd(p.padd_size - ft_strlen(str));
     else
@@ -21,11 +22,11 @@ static void ft_check_padd(t_options p, char *str) {
 void ft_print_str(t_options print, char *str)
 {
     int i;
-    
+
     i = 0;
     if(print.padd_size == 0)
     {
-        while(str[i] && i < print.field_size)
+        while(str[i])
             ft_putchar(str[i++]);
         return;
     }
