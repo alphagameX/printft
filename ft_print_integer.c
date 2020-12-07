@@ -46,6 +46,7 @@ int ft_print_integer(t_options print, int nbr)
     if(nb[0] == '-')
     {
         nb = ft_substr(nb, 1, ft_strlen(nb));
+        count++;
         sign *= -1; 
     }
     if(print.field_size < ft_strlen(nb))
