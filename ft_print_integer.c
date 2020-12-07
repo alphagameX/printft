@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 
-static int ft_print_padd(int end, char c, int *count) {
+static int ft_print_padd(int end, char c, int *count)
+{
     int i;
 
     i = 0;
