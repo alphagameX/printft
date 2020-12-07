@@ -2,9 +2,9 @@
 
 int main(void) {
 
-    int a = ft_printf("%7d",-14);
+    int a = ft_printf("%010.5d",-216);
     printf("\n");
-    int b = printf("%7d",-14);
+    int b = printf("%010.5d",-216);
     printf("\n");
     printf("%d\n",a);
     printf("%d\n",b);
