@@ -3,27 +3,27 @@
 int ft_parsing(va_list *args, char *s)
 {
     int i;
-    int flag_nb;
+    int count;
     t_options print;
 
     i = 0;
-    flag_nb = 0;
+    count = 0;
     while(s[i])
     {
         if(s[i] == '%')
         {
             ft_init(&print);
             ft_get_flag(s + i + 1, &print, &i, args);
-            flag_nb++;
-            ft_print_flag(print, args);
+            ft_print_flag(print, args, &count);
         }
         else
         {
             ft_putchar(s[i]);
+            count++;
         }
         i++;
     }
-    return (0);
+    return (count);
 }
 
 void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)

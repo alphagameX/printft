@@ -1,35 +1,60 @@
 #include "ft_printf.h"
 
-static void ft_print_padd(char type, int padd_size, int field_size, char c) {
-    while(padd_size - field_size > 0)
-    {
+static int ft_print_padd(int end, char c, int *count) {
+    int i;
+
+    i = 0;
+    while(i < end) {
         ft_putchar(c);
-        padd_size--;
+        (*count)++;
+        i++;
     }
 }
 
-void ft_print_integer(t_options print, int nbr)
+static void ft_check_padd(t_options p, char *str, int sign, int *count)
+{
+   ft_print_padd(p.padd_size - p.field_size - ((sign == -1) ? 1 : 0), p.padd_char, count);
+}
+
+static int ft_putstr_r(char *str) 
+{
+    int i;
+    
+    i = 0;
+    while(str[i])
+    {
+        ft_putchar(str[i]);
+        i++;
+    }
+    return (i);
+}
+
+int ft_print_integer(t_options print, int nbr)
 {
     char *nb;
+    int sign;
+    int count;
 
+    count = 0;
+    if(nbr == 0 && print.field_size == 0)
+        return (ft_print_padd(print.padd_size, ' ', &count));
+    sign = 1;
     nb = ft_itoa(nbr);
-    if(print.field_size == -1)
+    if(nb[0] == '-')
     {
-        if(!print.reverse_padd)
-            ft_print_padd(print.type, print.padd_size, ft_strlen(nb), print.padd_char);
-        ft_putstr(nb);
-        if(print.reverse_padd)
-            ft_print_padd(print.type, print.padd_size, ft_strlen(nb), print.padd_char);
+        nb = ft_substr(nb, 1, ft_strlen(nb));
+        sign *= -1; 
     }
-    else
-    {
-        if(!print.reverse_padd)
-            ft_print_padd(print.type, print.padd_size, print.field_size, ' ');
-        ft_print_padd(print.type, print.field_size, ft_strlen(nb), '0');
-        ft_putstr(nb);
-        if(print.reverse_padd)
-            ft_print_padd(print.type, print.padd_size, (print.field_size == 0) ? ft_strlen(nb) : print.field_size, ' ');
-    }
-    free(nb);
+    if(print.field_size < ft_strlen(nb))
+        print.field_size = ft_strlen(nb);
+    if(!print.reverse_padd)
+        ft_check_padd(print, nb, sign, &count);
+    if(sign == -1)
+        ft_putchar('-');
+    ft_print_padd(print.field_size - ft_strlen(nb), '0', &count);
+    count = ft_putstr_r(nb);
+    if(print.reverse_padd)
+        ft_check_padd(print, nb, sign, &count);
+    return (count);
 }
 
