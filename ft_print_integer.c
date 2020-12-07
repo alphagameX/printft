@@ -16,7 +16,7 @@ static int ft_check_padd(t_options p, char *str, int *sign)
 {
     (void)str;
 
-    if(*sign == -1)
+    if(*sign == -1 && p.padd_char == '0')
     {
         ft_putchar('-');
         *sign *= -1;

@@ -45,10 +45,8 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
             digit_getter(str + i, &print->padd_size, &i, args); 
         if(str[i] == '*')
             print->padd_size = va_arg(*args, int);  
-        if(str[i] == '.') {
+        if(str[i] == '.')
             digit_getter(str + i + 1, &print->field_size, &i, args);
-            print->padd_char = ' ';
-        }
         if(is_type(str[i]))
         {
             print->type = str[i];
