@@ -12,6 +12,18 @@ static int ft_print_padd(int end, char c)
 	return (i);
 }
 
+static int ft_check_padd(t_options p, char *str, int *sign)
+{
+    (void)str;
+
+    if(*sign == -1)
+    {
+        ft_putchar('-');
+        *sign *= -1;
+    }
+    return(ft_print_padd(p.padd_size - p.field_size - ((*sign == -1) ? 1 : 0), p.padd_char));
+}
+
 static int ft_putstr_r(char *str) 
 {
     int i;
@@ -45,13 +57,13 @@ int ft_print_integer(t_options print, int nbr)
     if(print.field_size < ft_strlen(nb))
         print.field_size = ft_strlen(nb);
     if(!print.reverse_padd)
-        count += ft_print_padd(print.padd_size - print.field_size - ((sign == -1) ? 1 : 0), print.padd_char);
+        count += ft_check_padd(print, nb, &sign);
     if(sign == -1)
         ft_putchar('-');
     count += ft_print_padd(print.field_size - ft_strlen(nb), '0');
     count += ft_putstr_r(nb);
     if(print.reverse_padd)
-        count += ft_print_padd(print.padd_size - print.field_size - ((sign == -1) ? 1 : 0), print.padd_char);
+        count += ft_check_padd(print, nb, &sign);
     return (count);
 }
 
