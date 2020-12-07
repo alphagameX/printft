@@ -2,6 +2,7 @@
 
 void ft_print_hex(t_options print, unsigned long nb)
 {
+    (void)print;
     char base[16] = "0123456789abcdef";
     char buf[20];
     int pos;

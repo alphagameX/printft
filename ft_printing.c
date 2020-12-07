@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 
 static void ft_print_padd(char type, int padd_size, int field_size, char c) {
+    (void)type;
     while(padd_size - field_size > 0)
     {
         ft_putchar(c);

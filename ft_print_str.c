@@ -22,13 +22,13 @@ void ft_print_str(t_options print, char *str)
 {
     int i;
     
+    i = 0;
     if(print.padd_size == 0)
     {
         while(str[i] && i < print.field_size)
             ft_putchar(str[i++]);
         return;
     }
-    i = 0;
     if(print.reverse_padd == false)
         ft_check_padd(print, str);
     while(str[i] && (print.field_size != -1 ? i < print.field_size : 1))
