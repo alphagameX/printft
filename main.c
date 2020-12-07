@@ -2,8 +2,10 @@
 
 int main(void) {
 
-    int a = ft_printf("%d\n",10);
+    int a = ft_printf("this is %d a number\n",10);
+    int b = printf("this is %d a number\n",10);
     printf("%d\n",a);
+    printf("%d\n",b);
 
     return (0);
 }

@@ -15,8 +15,8 @@ static int ft_print_padd(int end, char c, int *count)
 
 static void ft_check_padd(t_options p, char *str, int sign, int *count)
 {
-	(void)str;
-   ft_print_padd(p.padd_size - p.field_size - ((sign == -1) ? 1 : 0), p.padd_char, count);
+    (void)str;
+    ft_print_padd(p.padd_size - p.field_size - ((sign == -1) ? 1 : 0), p.padd_char, count);
 }
 
 static int ft_putstr_r(char *str) 
