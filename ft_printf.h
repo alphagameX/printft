@@ -24,7 +24,7 @@ int ft_parsing(va_list *args, char *s);
 void ft_init(t_options *print);
 void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args);
 int is_type(char t);
-void digit_getter(char *str, int *size, int *main_loop, va_list *args);
+void digit_getter(char *str, int *size,int *dir, int *main_loop, va_list *args);
 void ft_print_flag(t_options print, va_list *args, int *count);
 int ft_print_str(t_options print, char *str);
 int ft_print_number(t_options print, long long nbr);

@@ -26,10 +26,13 @@ int ft_parsing(va_list *args, char *s)
     return (count);
 }
 
-static int only_plus(int nbr)
+static int only_plus(int nbr, int *dir)
 {
-    if(nbr < 0)
+    if(nbr < 0) 
+    {
+        *dir = 1;
         return (nbr * -1);
+    }
     else
         return (nbr);
 }
@@ -48,11 +51,11 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
         if(str[i] == '0' && (ft_isdigit(str[i + 1]) && str[i + 1] != '0'))
             print->padd_char = '0';
         if(ft_isdigit(str[i]) && str[i] != '0')
-            digit_getter(str + i, &print->padd_size, &i, args); 
+            digit_getter(str + i, &print->padd_size, &print->reverse_padd, &i, args); 
         if(str[i] == '*')
-            print->padd_size =  only_plus(va_arg(*args, int));  
+            print->padd_size =  only_plus(va_arg(*args, int), &print->reverse_padd);  
         if(str[i] == '.') {
-            digit_getter(str + i + 1, &print->field_size, &i, args);
+            digit_getter(str + i + 1, &print->field_size, &print->reverse_padd, &i, args);
             print->padd_char = ' ';
         }
         if(is_type(str[i]))
@@ -66,14 +69,14 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
     *main_loop += i;
 }
 
-void digit_getter(char *str, int *size, int *main_loop, va_list *args) {
+void digit_getter(char *str, int *size,int *dir, int *main_loop, va_list *args) {
     int i;
     char *temp;
 
     i = 0;
     if(str[i] == '*')
     {
-        *size = only_plus(va_arg(*args, int));
+        *size = only_plus(va_arg(*args, int), dir);
         *main_loop += 1;
         return;
     } 
