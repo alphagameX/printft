@@ -36,4 +36,9 @@ push :
 	git commit -m "auto commit"
 	git push origin main 
 
+pull :
+	make fclean
+	git pull
+	make re
+
 re : fclean all
