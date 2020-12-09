@@ -26,13 +26,19 @@ int ft_parsing(va_list *args, char *s)
     return (count);
 }
 
+static int only_plus(int nbr)
+{
+    if(nbr < 0)
+        return (nbr * -1);
+    else
+        return (nbr)
+}
+
 void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
 {
     int i;
-    //int nb;
 
     i = 0;
-    //nb = 0;
     while (str[i])
     {
         if(str[i] == '-')
@@ -44,7 +50,7 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
         if(ft_isdigit(str[i]) && str[i] != '0')
             digit_getter(str + i, &print->padd_size, &i, args); 
         if(str[i] == '*')
-            print->padd_size = va_arg(*args, int);  
+            print->padd_size =  only_plus(va_arg(*args, int));  
         if(str[i] == '.') {
             digit_getter(str + i + 1, &print->field_size, &i, args);
             print->padd_char = ' ';
@@ -67,7 +73,7 @@ void digit_getter(char *str, int *size, int *main_loop, va_list *args) {
     i = 0;
     if(str[i] == '*')
     {
-        *size = va_arg(*args, int);
+        *size = only_plus(va_arg(*args, int));
         *main_loop += 1;
         return;
     } 
