@@ -11,8 +11,10 @@ static void ft_print_padd(char type, int padd_size, int field_size, char c) {
 
 void ft_print_flag(t_options print, va_list *args, int *count)
 {
-    if(print.type == 'd' || print.type == 'i' || print.type == 'u')
-       *count += ft_print_integer(print, va_arg(*args, int));
+    if(print.type == 'd' || print.type == 'i')
+       *count += ft_print_number(print, va_arg(*args, int));
+    else if(print.type == 'u')
+        *count += ft_print_number(print, va_arg(*args, unsigned int));
     else if(print.type == 's')
         *count += ft_print_str(print, va_arg(*args, char *));
     else if(print.type == 'c')

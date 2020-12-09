@@ -27,8 +27,9 @@ int is_type(char t);
 void digit_getter(char *str, int *size, int *main_loop, va_list *args);
 void ft_print_flag(t_options print, va_list *args, int *count);
 int ft_print_str(t_options print, char *str);
-int ft_print_integer(t_options print, int nbr);
+int ft_print_number(t_options print, long long nbr);
 void ft_print_char(t_options print, char c);
+char *ft_itoa(long long n);
 void ft_print_hex(t_options print, unsigned long nb);
 
 

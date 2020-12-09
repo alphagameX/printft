@@ -28,6 +28,8 @@ void ft_init(t_options *print)
     print->padd_char = ' ';
 }
 
+
+
 int is_type(char t)
 {
     if(t == 'd' ||

@@ -39,7 +39,9 @@ static int ft_putstr_r(char *str)
     return (i);
 }
 
-int ft_print_integer(t_options print, int nbr)
+
+
+int ft_print_number(t_options print, long long nbr)
 {
     char *nb;
     int sign;
