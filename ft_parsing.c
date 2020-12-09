@@ -42,8 +42,10 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
             print->padd_char = '0';
         if(ft_isdigit(str[i]) && str[i] != '0')
             digit_getter(str + i, &print->padd_size, &i, args); 
-        if(str[i] == '*')
-            print->padd_size =  va_arg(*args, int);  
+        if(str[i] == '*') {
+            int tmp = va_arg(*args, int);
+            print->padd_size =  (tmp < 0) ? tmp * -1 : tmp; 
+        }
         if(str[i] == '.') {
             digit_getter(str + i + 1, &print->field_size, &i, args);
             print->padd_char = ' ';
