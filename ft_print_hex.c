@@ -6,7 +6,7 @@ static char *revert_hex(char *str, int len)
     int i; 
 
     if(!(buf = (char *)malloc(sizeof(char) * 20)))
-        return ("0");
+        return (ft_malloc_zero());
     i = 0;
     while(len >= 0)
         buf[i++] = str[len--];
@@ -25,7 +25,7 @@ char *ft_get_hex(char type, unsigned long nb)
         base = "0123456789ABCDEF";
     pos = 0;
     if(nb == 0)
-        return ("0");
+        return (ft_malloc_zero());
     while(nb > 0)
     {
         buf[pos] =  base[nb % 16] ;

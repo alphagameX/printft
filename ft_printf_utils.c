@@ -18,7 +18,7 @@ static int		len(long long n)
 	return (i);
 }
 
-static char		*ft_malloc_zero(void)
+char	*ft_malloc_zero(void)
 {
 	char	*str;
 
