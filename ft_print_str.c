@@ -38,7 +38,7 @@ int ft_print_str(t_options print, char *str)
     count = 0;
     if(print.padd_size == 0)
     {
-        if(print.field_size == -1)
+        if(print.field_size < 0)
             print.field_size = ft_strlen(str);
         while(str[i] && i < print.field_size)
         {
