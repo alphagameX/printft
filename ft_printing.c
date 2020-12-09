@@ -21,7 +21,7 @@ void ft_print_flag(t_options print, va_list *args, int *count)
         ft_print_hex(print, va_arg(*args, unsigned long));
     else if(print.type == 'p')
         write(1, "en cours", 8);
-    //printf("type: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", print.type, print.reverse_padd, print.get_sign, print.padd_char, print.padd_size, print.field_size);
+    printf("type: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", print.type, print.reverse_padd, print.get_sign, print.padd_char, print.padd_size, print.field_size);
 }
 
 void ft_print_char(t_options print, char c)

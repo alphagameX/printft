@@ -1,13 +1,13 @@
 #include "ft_printf.h"
 
-static int ft_print_padd(int end)
+static int ft_print_padd(int end, char c)
 {
     int i;
 
     i = 0;
     while(i < end)
     {
-        ft_putchar(' ');
+        ft_putchar(c);
         i++;
     }
     return (i);
@@ -19,9 +19,9 @@ static int ft_check_padd(t_options p, char *str)
 
     count = 0;
     if(p.field_size < 0 || p.field_size > ft_strlen(str))
-        count += ft_print_padd(p.padd_size - ft_strlen(str));
+        count += ft_print_padd(p.padd_size - ft_strlen(str), p.padd_char);
     else
-        count += ft_print_padd(p.padd_size - p.field_size);
+        count += ft_print_padd(p.padd_size - p.field_size, p.padd_char);
     return (count);
 }
 
