@@ -32,6 +32,9 @@ int ft_print_char(t_options print, char c);
 char *ft_itoa_max(long long n);
 char *ft_get_hex(char type, unsigned long nb);
 char *ft_malloc_zero(void);
+int ft_print_addr(t_options p, unsigned long nbr);
+int ft_print_padd(int end, char c);
+int ft_putstr_r(char *str);
 
 
 #endif

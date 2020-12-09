@@ -55,3 +55,16 @@ char *ft_itoa_max(long long n)
 	}
 	return (str);
 }
+
+int ft_putstr_r(char *str) 
+{
+    int i;
+    
+    i = 0;
+    while(str[i])
+    {
+        ft_putchar(str[i]);
+        i++;
+    }
+    return (i);
+}

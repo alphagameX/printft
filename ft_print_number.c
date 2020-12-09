@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int ft_print_padd(int end, char c)
+int ft_print_padd(int end, char c)
 {
     int i;
 
@@ -26,22 +26,11 @@ static int ft_check_padd(t_options p, char *str, int *sign)
     return(ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), p.padd_char));
 }
 
-static int ft_putstr_r(char *str) 
-{
-    int i;
-    
-    i = 0;
-    while(str[i])
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
-    return (i);
-}
-
 static char *ft_check_type(char type, long long nbr) {
     if(type == 'x' || type == 'X')
         return (ft_get_hex(type, nbr));
+    // if(type == 'p')
+    //     return (ft_get_(nbr));
     return (ft_itoa_max(nbr));
 }
 

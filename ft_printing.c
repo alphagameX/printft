@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int ft_print_padd(char type, int padd_size, int field_size, char c)
+static int ft_print_padd_char(char type, int padd_size, int field_size, char c)
 {
     (void)type;
     int count;
@@ -28,7 +28,7 @@ void ft_print_flag(t_options print, va_list *args, int *count)
     else if(print.type == '%')
         *count += ft_print_char(print, '%');
     else if(print.type == 'p')
-        write(1, "en cours", 8);
+        *count += ft_print_addr(print, va_arg(*args, unsigned long));
     //printf("type: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", print.type, print.reverse_padd, print.get_sign, print.padd_char, print.padd_size, print.field_size);
 }
 
@@ -38,11 +38,11 @@ int ft_print_char(t_options print, char c)
 
     count = 0;
     if(!print.reverse_padd)
-        count += ft_print_padd(print.type, print.padd_size, 1, print.padd_char);
+        count += ft_print_padd_char(print.type, print.padd_size, 1, print.padd_char);
     ft_putchar(c);
     count++;
     if(print.reverse_padd)
-        count += ft_print_padd(print.type, print.padd_size, 1, ' ');
+        count += ft_print_padd_char(print.type, print.padd_size, 1, ' ');
     return (count);
 }
 

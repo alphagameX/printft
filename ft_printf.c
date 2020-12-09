@@ -29,7 +29,6 @@ void ft_init(t_options *print)
 }
 
 
-
 int is_type(char t)
 {
     if(t == 'd' ||
