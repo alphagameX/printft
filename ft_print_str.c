@@ -30,6 +30,8 @@ int ft_print_str(t_options print, char *str)
     int i;
     int count;
 
+    if(!str)
+        str = "(null)";
     i = 0;
     count = 0;
     if(print.padd_size == 0)
