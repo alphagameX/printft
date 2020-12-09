@@ -49,7 +49,7 @@ int ft_print_str(t_options print, char *str)
     }
     if(print.reverse_padd == false)
         count += ft_check_padd(print, str);
-    while(str[i])
+    while(str[i] && (print.field_size < 0) ? 1 : i < print.field_size)
     {
         ft_putchar(str[i++]);
         count += 1;
