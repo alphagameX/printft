@@ -37,7 +37,7 @@ void digit_getter(char *str, int *size, int *main_loop, va_list *args, int *dir)
         int tmp = va_arg(*args, int);
         if(tmp < 0)
             *dir = true;
-        *size = (tmp < 0) ? tmp * -1 : tmp;
+        *size = tmp;
         *main_loop += 1;
         return;
     } 
