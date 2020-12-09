@@ -10,7 +10,7 @@ int ft_parsing(va_list *args, char *s)
     count = 0;
     while(s[i])
     {
-        if(s[i] == '%')
+        if(s[i] == '%' && s[i + 1])
         {
             ft_init(&print);
             ft_get_flag(s + i + 1, &print, &i, args);
