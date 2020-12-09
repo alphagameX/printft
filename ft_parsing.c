@@ -31,7 +31,7 @@ static int only_plus(int nbr)
     if(nbr < 0)
         return (nbr * -1);
     else
-        return (nbr)
+        return (nbr);
 }
 
 void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
