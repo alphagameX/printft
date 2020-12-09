@@ -43,7 +43,7 @@ int ft_print_char(t_options print, char c)
         ft_putchar(c);
     count++;
     if(print.reverse_padd)
-        count += ft_print_padd(print.type, print.padd_size, 1, print.padd_char);
+        count += ft_print_padd(print.type, print.padd_size, 1, ' ');
     return (count);
 }
 
