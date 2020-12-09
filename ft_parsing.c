@@ -58,19 +58,19 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
     {
         if(str[i] == '-')
             print->reverse_padd = true;
-        else if(str[i] == '+')
+        if(str[i] == '+')
             print->get_sign = true;
-        else if(str[i] == '0' && (ft_isdigit(str[i + 1]) && str[i + 1] != '0'))
+        if(str[i] == '0' && (ft_isdigit(str[i + 1] || str[i + 1] == '*') && str[i + 1] != '0'))
             print->padd_char = '0';
-        else if(ft_isdigit(str[i]) && str[i] != '0')
+        if(ft_isdigit(str[i]) && str[i] != '0')
             digit_getter(str + i, &print->padd_size, &i, args, NULL); 
-        else if(str[i] == '*') {
+        if(str[i] == '*') {
             int tmp = va_arg(*args, int);
             if(tmp < 0)
                 print->reverse_padd = true;
             print->padd_size =  (tmp < 0) ? tmp * -1 : tmp; 
         }
-        else if(str[i] == '.') {
+        if(str[i] == '.') {
             digit_getter(str + i + 1, &print->field_size, &i, args, &print->reverse_padd);
             print->padd_char = ' ';
         }
