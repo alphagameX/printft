@@ -1,22 +1,31 @@
 #include "ft_printf.h"
 
-void ft_print_hex(t_options print, unsigned long nb)
+static char *revert_hex(char *str, int len)
 {
-    (void)print;
+    char *buf;
+    int i; 
+
+    if(!(buf = (char *)malloc(sizeof(char) * 20)))
+        return ("0");
+    i = 0;
+    while(len >= 0)
+        buf[i++] = str[len--];
+    return (buf);
+}
+
+char *ft_get_hex(char type, unsigned long nb)
+{
     char *base;
     char buf[20];
     int pos;
 
-    if(print.type == 'x')
+    if(type == 'x')
         base = "0123456789abcdef";
     else
         base = "0123456789ABCDEF";
     pos = 0;
     if(nb == 0)
-    {
-        ft_putchar('0');
-        return;
-    }
+        return ("0");
     while(nb > 0)
     {
         buf[pos] =  base[nb % 16] ;
@@ -24,7 +33,5 @@ void ft_print_hex(t_options print, unsigned long nb)
         nb /= 16;
     }
     buf[pos] = '\0';
-    while(pos >= 0) {
-        ft_putchar(buf[pos--]);
-    }
+    return (revert_hex(buf, pos - 1));
 }

@@ -39,7 +39,11 @@ static int ft_putstr_r(char *str)
     return (i);
 }
 
-
+static char *ft_check_type(char type, long long nbr) {
+    if(type == 'x' || type == 'X')
+        return (ft_get_hex(type, nbr));
+    return (ft_itoa_max(nbr));
+}
 
 int ft_print_number(t_options print, long long nbr)
 {
@@ -51,7 +55,7 @@ int ft_print_number(t_options print, long long nbr)
     if(nbr == 0 && print.field_size == 0)
         return (ft_print_padd(print.padd_size, ' '));
     sign = 1;
-    nb = ft_itoa_max(nbr);
+    nb = ft_check_type(print.type, nbr);
     if(nb[0] == '-')
     {
         nb = ft_substr(nb, 1, ft_strlen(nb));
@@ -68,6 +72,7 @@ int ft_print_number(t_options print, long long nbr)
     count += ft_putstr_r(nb);
     if(print.reverse_padd)
         count += ft_check_padd(print, nb, &sign);
+    free(nb);
     return (count);
 }
 
