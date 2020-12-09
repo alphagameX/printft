@@ -7,7 +7,7 @@ void ft_print_hex(t_options print, unsigned long nb)
     char buf[20];
     int pos;
 
-    if(print.type = 'x')
+    if(print.type == 'x')
         base = "0123456789abcdef";
     else
         base = "0123456789ABCDEF";
