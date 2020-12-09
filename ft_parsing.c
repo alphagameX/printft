@@ -44,6 +44,8 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
             digit_getter(str + i, &print->padd_size, &i, args); 
         if(str[i] == '*') {
             int tmp = va_arg(*args, int);
+            if(tmp < 0)
+                print->reverse_padd = true;
             print->padd_size =  (tmp < 0) ? tmp * -1 : tmp; 
         }
         if(str[i] == '.') {
