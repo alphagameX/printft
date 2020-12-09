@@ -51,7 +51,7 @@ int ft_print_number(t_options print, long long nbr)
     if(nbr == 0 && print.field_size == 0)
         return (ft_print_padd(print.padd_size, ' '));
     sign = 1;
-    nb = ft_itoa(nbr);
+    nb = ft_itoa_max(nbr);
     if(nb[0] == '-')
     {
         nb = ft_substr(nb, 1, ft_strlen(nb));

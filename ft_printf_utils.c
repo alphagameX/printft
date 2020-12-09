@@ -29,7 +29,7 @@ static char		*ft_malloc_zero(void)
 	return (str);
 }
 
-char *ft_itoa(long long n)
+char *ft_itoa_max(long long n)
 {
 	char	*str;
 	int		i;

@@ -29,7 +29,7 @@ void ft_print_flag(t_options print, va_list *args, int *count);
 int ft_print_str(t_options print, char *str);
 int ft_print_number(t_options print, long long nbr);
 void ft_print_char(t_options print, char c);
-char *ft_itoa(long long n);
+char *ft_itoa_max(long long n);
 void ft_print_hex(t_options print, unsigned long nb);
 
 
