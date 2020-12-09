@@ -23,7 +23,7 @@ void ft_print_flag(t_options print, va_list *args, int *count)
         *count += ft_print_number(print, va_arg(*args, unsigned int));
     else if(print.type == 's')
         *count += ft_print_str(print, va_arg(*args, char *));
-    else if(print.type == 'c')
+    else if(print.type == 'c' || print.type == '%')
         *count += ft_print_char(print, va_arg(*args, int));
     else if(print.type == 'p')
         write(1, "en cours", 8);
@@ -37,7 +37,10 @@ int ft_print_char(t_options print, char c)
     count = 0;
     if(!print.reverse_padd)
         count += ft_print_padd(print.type, print.padd_size, 1, ' ');
-    ft_putchar(c);
+    if(print.type == '%')
+        ft_putchar('%');
+    else
+        ft_putchar(c);
     count++;
     if(print.reverse_padd)
         count += ft_print_padd(print.type, print.padd_size, 1, ' ');
