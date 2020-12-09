@@ -47,11 +47,9 @@ int ft_print_str(t_options print, char *str)
         }
         return (count);
     }
-    if(print.field_size < -1)
-        print.field_size = print.field_size * -1;
     if(print.reverse_padd == false)
         count += ft_check_padd(print, str);
-    while(str[i] && (print.field_size != -1 ? i < print.field_size : 1))
+    while(str[i])
     {
         ft_putchar(str[i++]);
         count += 1;
