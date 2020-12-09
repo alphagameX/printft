@@ -36,14 +36,14 @@ int ft_print_char(t_options print, char c)
 
     count = 0;
     if(!print.reverse_padd)
-        count += ft_print_padd(print.type, print.padd_size, 1, ' ');
+        count += ft_print_padd(print.type, print.padd_size, 1, print.padd_char);
     if(print.type == '%')
         ft_putchar('%');
     else
         ft_putchar(c);
     count++;
     if(print.reverse_padd)
-        count += ft_print_padd(print.type, print.padd_size, 1, ' ');
+        count += ft_print_padd(print.type, print.padd_size, 1, print.padd_char);
     return (count);
 }
 
