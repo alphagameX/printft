@@ -14,7 +14,7 @@ void ft_print_flag(t_options print, va_list *args, int *count)
     if(print.type == 'd' || print.type == 'i')
        *count += ft_print_integer(print, va_arg(*args, int));
     else if(print.type == 's')
-        ft_print_str(print, va_arg(*args, char *));
+        *count += ft_print_str(print, va_arg(*args, char *));
     else if(print.type == 'c')
         ft_print_char(print, va_arg(*args, int));
     else if(print.type == 'x' || print.type == 'X')
