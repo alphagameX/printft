@@ -28,10 +28,10 @@ void digit_getter(char *str, int *size, int *main_loop, va_list *args);
 void ft_print_flag(t_options print, va_list *args, int *count);
 int ft_print_str(t_options print, char *str);
 int ft_print_number(t_options print, long long nbr);
-void ft_print_char(t_options print, char c);
+int ft_print_char(t_options print, char c);
 char *ft_itoa_max(long long n);
 char *ft_get_hex(char type, unsigned long nb);
-char    *ft_malloc_zero(void);
+char *ft_malloc_zero(void);
 
 
 #endif
