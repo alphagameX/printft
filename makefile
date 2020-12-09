@@ -30,4 +30,9 @@ compil:
 fclean : clean 
 	rm -f $(NAME)
 
+push : 
+	git add -A 
+	git commit -m "auto commit"
+	git push origin main 
+
 re : fclean all
