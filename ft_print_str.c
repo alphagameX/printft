@@ -18,8 +18,10 @@ static int ft_check_padd(t_options p, char *str)
     int count;
 
     count = 0;
+    if(p.reverse_padd)
+        p.padd_char = ' ';
     if(p.field_size < 0 || p.field_size > ft_strlen(str))
-        count += ft_print_padd(p.padd_size - ft_strlen(str), ' ');
+        count += ft_print_padd(p.padd_size - ft_strlen(str), p.padd_char);
     else
         count += ft_print_padd(p.padd_size - p.field_size, p.padd_char);
     return (count);
