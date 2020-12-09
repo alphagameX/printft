@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_parsing.c \
 	ft_print_hex.c \
 	ft_print_str.c \
-	ft_print_integer.c \
+	ft_print_number.c \
 	ft_printf.c \
 	ft_printing.c \
 	ft_printf_utils.c
