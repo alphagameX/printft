@@ -51,7 +51,7 @@ void ft_get_flag(char *str, t_options *print, int *main_loop, va_list *args)
             print->reverse_padd = true;
         if(str[i] == '+')
             print->get_sign = true;
-        if(str[i] == '0')
+        if(str[i] == '0' && print->reverse_padd == false)
             print->padd_char = '0';
         if(ft_isdigit(str[i]) && str[i] != '0')
             digit_getter(str + i, &print->padd_size, &i, args); 

@@ -25,8 +25,6 @@ static int ft_check_padd(t_options p, char *str, int *sign)
         ft_putchar('-');
         *sign *= -1;
     }
-    // if(p.field_size < -1 && p.padd_size > 0)
-    //     return (ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), '0'));
     return(ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), p.padd_char));
 }
 

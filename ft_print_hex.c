@@ -5,11 +5,12 @@ static char *revert_hex(char *str, int len)
     char *buf;
     int i; 
 
-    if(!(buf = (char *)malloc(sizeof(char) * 20)))
+    if(!(buf = (char *)malloc(sizeof(char) * len + 1)))
         return (ft_malloc_zero());
     i = 0;
     while(len >= 0)
         buf[i++] = str[len--];
+    buf[i] = '\0';
     return (buf);
 }
 
