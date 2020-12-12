@@ -17,20 +17,22 @@ static int ft_check_padd(t_options p, char *str, int *sign)
     (void)str;
     int temp_sign;
 
+    //printf("\ntype: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", p.type, p.reverse_padd, p.get_sign, p.padd_char, p.padd_size, p.field_size);
+
     temp_sign = *sign;
-    if(*sign == -1 && p.padd_char == '0')
+    if(*sign == -1 && p.padd_char == '0' && p.padd_size != 0 && p.reverse_padd == false)
     {
         ft_putchar('-');
         *sign *= -1;
     }
+    // if(p.field_size < -1 && p.padd_size > 0)
+    //     return (ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), '0'));
     return(ft_print_padd(p.padd_size - p.field_size - ((temp_sign == -1) ? 1 : 0), p.padd_char));
 }
 
 static char *ft_check_type(char type, long long nbr) {
     if(type == 'x' || type == 'X')
         return (ft_get_hex(type, nbr));
-    // if(type == 'p')
-    //     return (ft_get_(nbr));
     return (ft_itoa_max(nbr));
 }
 

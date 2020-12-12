@@ -3,7 +3,8 @@
 int main(void) {
 
     int a = 10;
-    ft_printf("%020.17p\n", &a);
+    ft_printf("%*x\n",5, 8);
+    printf("%*x\n", 5, 8);
 
     return (0);
 }

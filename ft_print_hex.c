@@ -16,7 +16,7 @@ static char *revert_hex(char *str, int len)
 char *ft_get_hex(char type, unsigned long nb)
 {
     char *base;
-    char buf[20];
+    char buf[100];
     int pos;
 
     if(type == 'x' || type == 'p')
@@ -48,7 +48,7 @@ int ft_addr_zero(t_options p) {
     return (count + 2);
 }
 
-int on_sen_fout(t_options p, char *addr) {
+int ft_print_padd_hex(t_options p, char *addr) {
     int count;
 
     count = 0;
@@ -69,10 +69,10 @@ int ft_print_addr(t_options p, unsigned long nbr)
     addr = ft_get_hex(p.type, nbr);
 
     if(p.reverse_padd)
-        count += on_sen_fout(p, addr);
+        count += ft_print_padd_hex(p, addr);
     count += ft_print_padd(p.padd_size - (ft_strlen(addr) + 2), ' '); 
     if(!p.reverse_padd)
-        count += on_sen_fout(p, addr);    
+        count += ft_print_padd_hex(p, addr);    
 
     return (count);
 }

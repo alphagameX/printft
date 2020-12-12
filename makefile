@@ -10,17 +10,19 @@ SRCS = ft_parsing.c \
 	ft_print_number.c \
 	ft_printf.c \
 	ft_printing.c \
-	ft_printf_utils.c
+	ft_printf_utils.c \
 
 OBJS = ${SRCS:.c=.o}
+
+OBJS_LIBFT = libft/*.o
 
 all : $(NAME)
 
 .c.o: 
 	$(CC) $(CFLAGS) -g -c $< -o ${<:.c=.o}
 
-$(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS) 
+$(NAME) : $(OBJS) 
+	ar rcs $(NAME) $(OBJS) $(OBJS_LIBFT) 
 
 clean : 
 	rm -f $(OBJS) 

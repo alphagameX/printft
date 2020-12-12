@@ -29,7 +29,7 @@ void ft_print_flag(t_options print, va_list *args, int *count)
         *count += ft_print_char(print, '%');
     else if(print.type == 'p')
         *count += ft_print_addr(print, va_arg(*args, unsigned long));
-    //printf("type: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", print.type, print.reverse_padd, print.get_sign, print.padd_char, print.padd_size, print.field_size);
+    //printf("\ntype: %c, reverse_padd: %i, get_sign: %d, padd_char: %c, padd_size: %d, field_size: %d\n", print.type, print.reverse_padd, print.get_sign, print.padd_char, print.padd_size, print.field_size);
 }
 
 int ft_print_char(t_options print, char c)
