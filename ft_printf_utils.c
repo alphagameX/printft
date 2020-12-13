@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atinseau <atinseau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/13 13:59:58 by atinseau          #+#    #+#             */
+/*   Updated: 2020/12/13 13:59:59 by atinseau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		len(long long n)
@@ -18,7 +30,7 @@ static int		len(long long n)
 	return (i);
 }
 
-char	*ft_malloc_zero(void)
+char			*ft_malloc_zero(void)
 {
 	char	*str;
 
@@ -29,11 +41,11 @@ char	*ft_malloc_zero(void)
 	return (str);
 }
 
-char *ft_itoa_max(long long n)
+char			*ft_itoa_max(long long n)
 {
-	char	*str;
-	int		i;
-	long long nb;
+	char		*str;
+	int			i;
+	long long	nb;
 
 	if (n == 0)
 		return (ft_malloc_zero());
@@ -56,15 +68,15 @@ char *ft_itoa_max(long long n)
 	return (str);
 }
 
-int ft_putstr_r(char *str) 
+int				ft_putstr_r(char *str)
 {
-    int i;
-    
-    i = 0;
-    while(str[i])
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
-    return (i);
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }
