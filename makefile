@@ -6,7 +6,7 @@
 #    By: atinseau <atinseau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:00:10 by atinseau          #+#    #+#              #
-#    Updated: 2020/12/14 17:49:35 by atinseau         ###   ########.fr        #
+#    Updated: 2020/12/14 18:22:48 by atinseau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ clean :
 	rm -f $(OBJS) $(OBJSTOOL)
 
 fclean : clean 
+	cd libft && make fclean
 	rm -f $(NAME)
 
 push : 
