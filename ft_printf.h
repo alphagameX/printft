@@ -6,16 +6,16 @@
 /*   By: atinseau <atinseau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:00:03 by atinseau          #+#    #+#             */
-/*   Updated: 2020/12/13 14:00:04 by atinseau         ###   ########.fr       */
+/*   Updated: 2020/12/13 16:00:55 by atinseau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
+# include "libft/libft.h"
 # include <stdlib.h>
 # define FALSE 0
 # define TRUE 1
@@ -47,4 +47,5 @@ char			*ft_malloc_zero(void);
 int				ft_print_addr(t_options p, unsigned long nbr);
 int				ft_print_padd(int end, char c);
 int				ft_putstr_r(char *str);
+
 #endif
