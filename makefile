@@ -6,7 +6,7 @@
 #    By: atinseau <atinseau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:00:10 by atinseau          #+#    #+#              #
-#    Updated: 2020/12/14 18:22:48 by atinseau         ###   ########.fr        #
+#    Updated: 2020/12/14 18:23:35 by atinseau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,10 @@ all : $(NAME)
 .c.o: 
 	$(CC) $(CFLAGS) -g -c $< -o ${<:.c=.o}
 
-get: 
+lib_compil: 
 	cd libft && make all
 
-$(NAME) : $(OBJS) get
+$(NAME) : $(OBJS) lib_compil
 	ar rcs $(NAME) $(OBJS) $(LIBFT)
 
 clean : 
