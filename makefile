@@ -46,7 +46,7 @@ fclean : clean
 	cd libft && make fclean
 	rm -f $(NAME)
 
-push : 
+push :
 	git add -A 
 	git commit -m "auto commit"
 	git push origin main 
